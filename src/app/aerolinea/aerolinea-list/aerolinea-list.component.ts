@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Aerolinea } from '../aerolinea';
+import { AerolineaService } from '../aerolinea.service';
 
 @Component({
   selector: 'app-aerolinea-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AerolineaListComponent implements OnInit {
 
-  constructor() { }
+  aerolineas: Array<Aerolinea> = [];
+
+  constructor(private aerolineaService: AerolineaService) { }
+
+  getAerolineas(): void {
+    this.aerolineaService.getAerolineas().subscribe((aerolineas) => {
+      this.aerolineas = aerolineas;
+    });
+  }
 
   ngOnInit() {
+    this.getAerolineas();
   }
 
 }

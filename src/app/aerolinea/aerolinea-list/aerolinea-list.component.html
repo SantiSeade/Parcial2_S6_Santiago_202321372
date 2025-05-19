@@ -1,3 +1,11 @@
-<p>
-  aerolinea-list works!
-</p>
+<div class="container py-5">
+  <div class="row gx-5">
+    <div class="col-md-4 mb-5" *ngFor="let aerolinea of aerolineas">
+      <div class="card h-100">
+        <div class="card-body">
+          <h1 class="card-text">{{aerolinea.airlineName}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
